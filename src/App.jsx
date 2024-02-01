@@ -1,19 +1,21 @@
 const App = () => {
-  const course = "Half Stack application development";
-  const parts = [
-    {
-      name: "Fundamentals of React",
-      exercises: 10,
-    },
-    {
-      name: "Using props to pass data",
-      exercises: 7,
-    },
-    {
-      name: "State of a component",
-      exercises: 14,
-    },
-  ];
+  const course = {
+    name: "Half Stack application development",
+    parts: [
+      {
+        name: "Fundamentals of React",
+        exercises: 10,
+      },
+      {
+        name: "Using props to pass data",
+        exercises: 7,
+      },
+      {
+        name: "State of a component",
+        exercises: 14,
+      },
+    ],
+  };
 
   const Header = (props) => {
     return (
@@ -37,7 +39,10 @@ const App = () => {
     {
       /* chatGPT */
     }
-    const totalExercises = parts.reduce((sum, part) => sum + part.exercises, 0);
+    const totalExercises = course.parts.reduce(
+      (sum, part) => sum + part.exercises,
+      0
+    );
     return (
       <div>
         <p>Number of exercises {totalExercises}</p>
@@ -47,8 +52,8 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course} />
-      {parts.map((part, index) => (
+      <Header course={course.name} />
+      {course.parts.map((part, index) => (
         <Content key={index} part={part.name} exercises={part.exercises} />
       ))}
       <Total />
