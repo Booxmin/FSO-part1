@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const Display = (props) => <div>{props.name} {props.value}</div>;
+const Display = (props) => (
+  <div>
+    {props.name}: {props.value}
+  </div>
+);
 
 const Button = (props) => (
   <button onClick={props.handleClick}>{props.text}</button>
@@ -34,9 +38,18 @@ const Unicafe = () => {
       <Button handleClick={() => setToNeutral(neutral + 1)} text="neutral" />
       <Button handleClick={() => setToBad(bad + 1)} text="bad" />
       <h2>statistics</h2>
-      <Display value={good} name="Good"/>
-      <Display value={neutral} name="Neutral"/>
-      <Display value={bad} name="Bad"/>
+      <Display value={good} name="Good" />
+      <Display value={neutral} name="Neutral" />
+      <Display value={bad} name="Bad" />
+      <Display value={good + neutral + bad} name="All" />
+      <Display
+        value={(good * 1 + neutral * 0 + bad * -1) / (good + neutral + bad)}
+        name="Average"
+      />
+      <Display
+        value={(good / (good + neutral + bad)) * 100 + " %"}
+        name="Positive"
+      />
     </div>
   );
 };
