@@ -1,3 +1,5 @@
+import Unicafe from "./Unicafe";
+
 const App = () => {
   const course = {
     name: "Half Stack application development",
@@ -57,6 +59,7 @@ const App = () => {
         <Content key={index} part={part.name} exercises={part.exercises} />
       ))}
       <Total />
+      <Unicafe/>
     </div>
   );
 };
